@@ -8,7 +8,17 @@ var execFile = require('child_process').execFile;
 app.use('/widget', express.static(__dirname + '/release/dist'));
 
 app.post('/widget', function(req, res) {
-  console.log('Receive POST:', req)
+
+  var execOptions = {
+      maxBuffer: 1024 * 1024 // Increase max buffer to 1mb
+  };
+  
+  execFile(__dirname + '/deploy.sh', execOptions, function(error, stdout, stderr) {
+      if( error )
+      {
+          console.log(error)
+      }
+  });
 
   handler(req, res, function (err) {
       res.statusCode = 404
@@ -30,7 +40,7 @@ handler.on('push', function (event) {
     var execOptions = {
         maxBuffer: 1024 * 1024 // Increase max buffer to 1mb
     };
-    execFile(__dirname + 'deploy.sh', execOptions, function(error, stdout, stderr) {
+    execFile(__dirname + '/deploy.sh', execOptions, function(error, stdout, stderr) {
         if( error )
         {
             console.log(error)
