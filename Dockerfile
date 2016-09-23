@@ -14,5 +14,4 @@ RUN /bin/bash -c "source deploy.sh"
 # If you need npm, don't use a base tag
 # RUN npm install
 
-EXPOSE 3000
 CMD ["node", "index.js"]
