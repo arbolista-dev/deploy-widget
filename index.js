@@ -2,12 +2,14 @@ var express = require('express');
 var app = express();
 
 var createHandler = require('github-webhook-handler')
-var handler = createHandler({ path: '/widget/githook', secret: 'zfj21rKWOrvJ6jTCI5rW' })
+var handler = createHandler({ path: '/widget', secret: 'zfj21rKWOrvJ6jTCI5rW' })
 var execFile = require('child_process').execFile;
 
 app.use('/widget', express.static(__dirname + '/release/dist'));
 
-app.get('/widget/githook', function(req, res) {
+app.post('/widget', function(req, res) {
+  console.log('Receive POST:', req)
+
   handler(req, res, function (err) {
       res.statusCode = 404
       res.end('no such location')
