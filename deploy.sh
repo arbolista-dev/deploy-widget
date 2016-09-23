@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-REPO='git@github.com:arbolista-dev/cc-calculator-widget.git';
+REPO='https://github.com/arbolista-dev/cc-calculator-widget.git';
 RELEASE_DIR='./dist';
 TEMP_DIR='./tmp';
 BUNDLE_PATH='dist/bundle.min.js'
