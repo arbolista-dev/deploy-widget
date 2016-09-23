@@ -1,15 +1,17 @@
 var express = require('express');
 var app = express();
 
-app.use('/dist', express.static(__dirname + '/dist'));
+app.use('/dist', express.static(__dirname + '/release/dist'));
 
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 4000, function() {
+  console.log('Express server listening.');
+});
 
 var execFile = require('child_process').execFile;
 var githubhook = require('githubhook');
 var github = githubhook({
     host: '0.0.0.0',
-    port: 80,
+    port: 3240,
     path: '/githook',
     secret: 'zfj21rKWOrvJ6jTCI5rW',
     logger: console,

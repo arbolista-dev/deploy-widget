@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Cool Climate Calculator Widget Example</title>
+  <script src="bundle.min.js"></script>
+</head>
+<body>
+  <div id="widget_goes_here"></div>
+  <script>
+  new window.Widget({
+     container_id: 'widget_goes_here',
+     source: 'nature.org',
+     campaign: 'carboncalculator',
+     user_platform: false,
+     banner_url: "https://clipartion.com/wp-content/uploads/2016/03/green-banner-transparent-png-image.png",
+     banner_style: {'maxHeight': '0px'},
+     cta: {
+       title: 'Raise Your Voice',
+       show_equation: false,
+       description: 'Your support will fund forest conservation and help reduce or slow the worst consequences of climate change.',
+       carbon_price_per_ton: 45,
+       offset_url: 'https://support.nature.org/site/Advocacy?cmd=display&page=UserAction&id=140&src2=p.nature.carboncalculator.widget',
+       button_title: 'SIGN THE PLEDGE'
+     }
+   });
+  </script>
+</body>
+</html>
