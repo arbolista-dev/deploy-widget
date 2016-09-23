@@ -1,8 +1,9 @@
 var express = require('express');
 var app = express();
+require('dotenv').config();
 
 var createHandler = require('github-webhook-handler')
-var handler = createHandler({ path: '/widget', secret: 'zfj21rKWOrvJ6jTCI5rW' })
+var handler = createHandler({ path: '/widget', secret: process.env.SECRET })
 var execFile = require('child_process').execFile;
 
 app.use('/widget', express.static(__dirname + '/release/dist'));
