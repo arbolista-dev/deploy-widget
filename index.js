@@ -16,7 +16,7 @@ var githubhook = require('githubhook');
 var github = githubhook({
     host: '0.0.0.0',
     port: 3240,
-    path: '/githook',
+    path: '/widget/githook',
     secret: 'zfj21rKWOrvJ6jTCI5rW',
     logger: console,
 });
