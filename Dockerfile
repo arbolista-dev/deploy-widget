@@ -10,6 +10,7 @@ ADD . .
 RUN apk update && apk upgrade && \
     apk add --no-cache bash git
 
+RUN /bin/bash -c "source deploy.sh"
 # If you need npm, don't use a base tag
 # RUN npm install
 
