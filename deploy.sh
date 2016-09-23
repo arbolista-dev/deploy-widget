@@ -8,4 +8,3 @@ BUNDLE_PATH='dist/bundle.min.js'
 # Fetch Latest Code
 rm -rf $RELEASE_DIR
 git clone -b master $REPO $RELEASE_DIR;
-date > date.txt

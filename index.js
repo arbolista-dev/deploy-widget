@@ -8,25 +8,11 @@ var execFile = require('child_process').execFile;
 app.use('/widget', express.static(__dirname + '/release/dist'));
 
 app.post('/widget', function(req, res) {
-
-  var execOptions = {
-      maxBuffer: 1024 * 1024 // Increase max buffer to 1mb
-  };
-  
-  execFile(__dirname + '/deploy.sh', execOptions, function(error, stdout, stderr) {
-      if( error )
-      {
-          console.log(error)
-      }
-  });
-
   handler(req, res, function (err) {
       res.statusCode = 404
       res.end('no such location')
   });
 });
-
-
 
 handler.on('error', function (err) {
   console.error('Error:', err.message)
@@ -37,6 +23,8 @@ handler.on('push', function (event) {
     event.payload.repository.name,
     event.payload.ref)
     // Exec a shell script
+
+    if (event.payload.repository.name === 'cc-calculator-widget' && event.payload.ref === 'refs/heads/master')
     var execOptions = {
         maxBuffer: 1024 * 1024 // Increase max buffer to 1mb
     };
