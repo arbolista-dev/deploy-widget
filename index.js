@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 
-app.use('/dist', express.static(__dirname + '/release/dist'));
+app.use(express.static(__dirname + '/release/dist'));
 
 app.listen(process.env.PORT || 4000, function() {
   console.log('Express server listening.');
